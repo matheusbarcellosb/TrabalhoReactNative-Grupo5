@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#25aae2'
+        backgroundColor: '#101010'
     },
     containerLogo: {
         flex: 0.6,
@@ -35,15 +35,11 @@ export const styles = StyleSheet.create({
     },
     input: {
         width: '100%',
-        padding: 10,
         marginBottom: 20,
         backgroundColor: "#e8f6f8",
-        borderRadius: 15,
-        borderWidth: 2,
-        borderColor: '#36708e'
     },
     containerEntrar: {
-        flex: 0.7,
+        flex: 0.6,
     },
     btnEntrar: {
         alignItems: 'center',
