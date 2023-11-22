@@ -1,8 +1,9 @@
-import { View, Text, TextInput, Alert, TouchableOpacity, Image } from 'react-native'
+import { View, Text, Alert, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from './style'
+import { TextInput } from 'react-native-paper'
 
 export const Login = () => {
 
@@ -15,7 +16,7 @@ export const Login = () => {
     if (senha === '' || email === '') {
       Alert.alert('Preencha os campos')
     }
-    else if (senha !== "admin" && email !== "admin") {
+    else if (senha !== "0" && email !== "0") {
       Alert.alert('Senha ou email incorreto')
     }
     else
@@ -29,30 +30,28 @@ export const Login = () => {
         <View style={styles.container}>
 
           <View style={styles.containerLogo}>
-            <Image resizeMode='contain' style={styles.logo} source={require('../../../assets/logo_grupo_5.png')} />
+            <Image style={styles.logo} source={require('../../../assets/logo2.png')} />
           </View>
-
-          {/* 
-          <View style={styles.containerLogin}>
-            <Text style={styles.textoLogin}>Login</Text>
-          </View> 
-          */}
 
           <TextInput
             style={[styles.input, styles.sombra]}
-            placeholder='E-mail'
-            placeholderTextColor='#185881'
-            autoCorrect={false}
+            label='E-mail'
+            selectionColor='#000'
+            textColor='#000'
+            underlineColor='#5a5a5a'
+            activeUnderlineColor='#efb804'
             value={email}
             onChangeText={(text) => setEmail(text)}
           />
           <TextInput
             style={[styles.input, styles.sombra]}
-            placeholder='Senha'
-            placeholderTextColor='#185881'
-            value={senha}
-            autoCorrect={false}
+            label='Senha'
+            selectionColor='#000'
+            textColor='#000'
+            underlineColor='#5a5a5a'
+            activeUnderlineColor='#efb804'
             secureTextEntry={true}
+            value={senha}
             onChangeText={(text) => setSenha(text)}
           />
 
@@ -60,8 +59,8 @@ export const Login = () => {
             <TouchableOpacity style={[
               styles.btnEntrar,
               {
-                backgroundColor: (email !== '' && senha !== '') ? '#75C2F6' : '#5a5a5a',
-                borderColor: (email !== '' && senha !== '') ? '#024873' : '#000',
+                backgroundColor: (email !== '' && senha !== '') ? '#f6be00' : '#5a5a5a',
+                borderColor: (email !== '' && senha !== '') ? '#11111f' : '#000',
               },
               styles.sombra
             ]} onPress={handleLogin}>
