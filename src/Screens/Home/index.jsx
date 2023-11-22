@@ -8,6 +8,7 @@ const Home = ({ navigation }) => {
 
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pesquisa, setPesquisa] = useState('');
 
   const buscarDados = async () => {
     try {
@@ -21,6 +22,10 @@ const Home = ({ navigation }) => {
     }
   };
 
+  const filtrarProdutos = () => {
+    return produtos.filter((produto) => produto.nome.toLowerCase().includes(pesquisa.toLowerCase()));
+  }
+
   useEffect(() => {
     buscarDados();
   }, []);
@@ -32,13 +37,14 @@ const Home = ({ navigation }) => {
         <Text style={styles.headerText}>Produtos</Text>
       </View>
 
-      <View style={styles.addProduto}>
+      <View style={styles.search}>
         <TextInput
           style={styles.input}
           placeholder='Add produto'
+          onChangeText={(texto) => setPesquisa(texto)}
         />
-        <TouchableOpacity>
-          <FontAwesome5 name="plus-square" size={24} color="white" />
+        <TouchableOpacity style={styles.icone}>
+          <FontAwesome5 name="search" size={24} color="gray" />
         </TouchableOpacity>
       </View>
 
@@ -50,7 +56,7 @@ const Home = ({ navigation }) => {
           </View>
         ) : (
           <FlatList
-            data={produtos}
+            data={filtrarProdutos()}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity>
