@@ -22,7 +22,9 @@ export const styles = StyleSheet.create({
         color: "#F2CD00",
         backgroundColor: "black",
         marginTop:-20,
-        marginBottom:20
+        marginBottom:20,
+        
+
     },
 
     NomeIntegrante:{
@@ -30,6 +32,8 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         color: "white",
          fontWeight: "bold",
+         
+       
          
     },
     linkedin:{
@@ -51,6 +55,19 @@ export const styles = StyleSheet.create({
           left:"45%",
           marginTop:10,
           borderColor:'gold'
+    },
+    ecommerce:{
+        marginTop:10,
+
+    },
+    card:{
+        borderWidth:2,
+        borderColor: 'gold',
+        marginBottom:15,
+        borderRadius:30,
+        width: "80%",
+        marginLeft:45,
+        marginTop:-5
     }
 
 })

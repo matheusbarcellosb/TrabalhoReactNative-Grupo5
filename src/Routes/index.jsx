@@ -17,7 +17,7 @@ export const Routes = () => {
           name="Sobre"
           component={Sobre}
           options={{
-            // headerShown: false
+             headerShown: false
           }}
         />
         <Screen
