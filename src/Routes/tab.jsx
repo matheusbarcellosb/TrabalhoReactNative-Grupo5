@@ -1,10 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Sobre from '../Screens/Sobre';
 import Home from '../Screens/Home';
-import { Routes } from './stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { SplashScreen } from '../Screens/SplashScreen';
-import { Login } from '../Screens/Login';
 
 const { Navigator, Screen } = createMaterialTopTabNavigator();
 
