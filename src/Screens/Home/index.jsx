@@ -41,7 +41,7 @@ const Home = ({ navigation }) => {
       <View style={styles.search}>
         <TextInput
           style={styles.input}
-          placeholder='Pesquisar Produto'
+          placeholder='Pesquisar'
           onChangeText={(texto) => setPesquisa(texto)}
         />
         <TouchableOpacity style={styles.icone}>
