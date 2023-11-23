@@ -1,9 +1,11 @@
-import { View, Text, Alert, TouchableOpacity, Image, BackHandler } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, Alert, TouchableOpacity, Image } from 'react-native'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from './style'
 import { TextInput } from 'react-native-paper'
+import Desconectado from '../Desconectado'
+import NetInfo from '@react-native-community/netinfo'
 
 export const Login = () => {
 
@@ -18,6 +20,15 @@ export const Login = () => {
   const [senha, setSenha] = useState('')
   const [email, setEmail] = useState('')
 
+  const [conectado, setConectado] = useState(true)
+  
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setConectado(state.isConnected)
+    })
+    return () => unsubscribe();
+  }, [])
+
   const handleLogin = () => {
     if (senha === '' || email === '') {
       Alert.alert('Preencha os campos')
@@ -30,8 +41,10 @@ export const Login = () => {
   }
 
   return (
-    <>
+
       <SafeAreaView style={styles.fullScreen}>
+
+      {conectado ? (  
 
         <View style={styles.container}>
 
@@ -74,9 +87,12 @@ export const Login = () => {
             </TouchableOpacity>
           </View>
         </View>
+      ) : (
+        <Desconectado/>
+      )
+}
 
       </SafeAreaView>
-    </>
   )
 }
 
