@@ -9,12 +9,6 @@ import NetInfo from '@react-native-community/netinfo'
 
 export const Login = () => {
 
-  useEffect(()=> {
-    BackHandler.addEventListener('hardwareBackPress', () => {
-        return true
-    })
-    },[])
-
   const navigation = useNavigation()
 
   const [senha, setSenha] = useState('')
