@@ -1,17 +1,11 @@
-import { View, Text, Alert, TouchableOpacity, Image, BackHandler } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, Alert, TouchableOpacity, Image } from 'react-native'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from './style'
 import { TextInput } from 'react-native-paper'
 
 export const Login = () => {
-
-  useEffect(()=> {
-    BackHandler.addEventListener('hardwareBackPress', () => {
-        return true
-    })
-    },[])
 
   const navigation = useNavigation()
 

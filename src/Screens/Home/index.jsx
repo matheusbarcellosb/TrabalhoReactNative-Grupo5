@@ -3,6 +3,7 @@ import { styles } from './style'
 import React, { useEffect, useState } from 'react'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import api from '../Services/api'
 
 const Home = ({ navigation }) => {
 
@@ -12,9 +13,9 @@ const Home = ({ navigation }) => {
 
   const buscarDados = async () => {
     try {
-      const response = await fetch('https://655d0b9125b76d9884fe535f.mockapi.io/listadeprodutos');
-      const data = await response.json();
-      setProdutos(data);
+      const response = await api.get('/listadeprodutos');
+
+      setProdutos(response.data);
       setLoading(false);
     } catch (error) {
       console.error('Erro ao buscar dados da API:', error);
@@ -40,7 +41,7 @@ const Home = ({ navigation }) => {
       <View style={styles.search}>
         <TextInput
           style={styles.input}
-          placeholder='Add produto'
+          placeholder='Pesquisar Produto'
           onChangeText={(texto) => setPesquisa(texto)}
         />
         <TouchableOpacity style={styles.icone}>
@@ -58,18 +59,21 @@ const Home = ({ navigation }) => {
           <FlatList
             data={filtrarProdutos()}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({item}) => (
-              <TouchableOpacity>
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => navigation.navigate('Produto', { item })}>
                 <View style={styles.produto} key={item.id}>
+
                   <Image
                     source={{ uri: `${item?.imagem}` }}
-                    style={{ width: 70, height: 70 }}
+                    style={{ width: 80, height: 80, borderWidth: 2, borderColor: '#000', marginBottom: 10 }}
                   />
-                  <View style={styles.infoProduto}>
-                    <Text style={styles.textProduto}>Nome: {item.nome}</Text>
-                    <Text style={styles.textProduto}>Estoque: {item.quantidadeEstoque}</Text>
-                    <Text style={styles.preco}>Preço: R$ {item.valorUnitario}.00</Text>
-                  </View>
+                  <Text style={styles.textoProduto}>Nome: </Text>
+                  <Text style={styles.dadosProduto}>{item.nome}</Text>
+
+                  <Text style={styles.textoProduto}>No Estoque: <Text style={styles.dadosProduto}>{item.quantidadeEstoque}</Text></Text>
+                  <Text style={styles.textoProduto}>Preço: </Text>
+                  <Text style={styles.dadosProduto}>R$ {item.valorUnitario.toFixed(2)}</Text>
+
                 </View>
                 <View style={styles.linha}></View>
               </TouchableOpacity>
