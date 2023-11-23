@@ -5,7 +5,7 @@ import Home from '../Screens/Home'
 import { Login } from '../Screens/Login'
 import {Produto} from '../Screens/Produto'
 import { SplashScreen } from '../Screens/SplashScreen'
-
+import Sobre from '../Screens/Sobre'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -18,6 +18,13 @@ export const Routes = () => {
           component={SplashScreen}
           options={{
             headerShown: false
+          }}
+        />
+        <Screen
+          name="Sobre"
+          component={Sobre}
+          options={{
+            // headerShown: false
           }}
         />
         <Screen
@@ -34,13 +41,13 @@ export const Routes = () => {
             // headerShown: false
           }}
         />
-        <Screen
+        {/* <Screen
           name="Produto"
           component={Produto}
         // options={{
         //   headerShown: false
         // }}
-        />
+        /> */}
       </Navigator>
     </NavigationContainer>
   )
