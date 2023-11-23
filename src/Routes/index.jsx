@@ -3,6 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 import Home from '../Screens/Home'
 import { Login } from '../Screens/Login'
+import {Produto} from '../Screens/Produto'
+import { SplashScreen } from '../Screens/SplashScreen'
+import Sobre from '../Screens/Sobre'
 
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -11,6 +14,20 @@ export const Routes = () => {
   return (
     <NavigationContainer>
       <Navigator>
+      <Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Screen
+          name="Sobre"
+          component={Sobre}
+          options={{
+            // headerShown: false
+          }}
+        />
         <Screen
           name="Login"
           component={Login}

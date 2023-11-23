@@ -58,7 +58,7 @@ const Home = ({ navigation }) => {
           <FlatList
             data={filtrarProdutos()}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
+            renderItem={({item}) => (
               <TouchableOpacity>
                 <View style={styles.produto} key={item.id}>
                   <Image
