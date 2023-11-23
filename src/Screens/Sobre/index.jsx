@@ -5,9 +5,9 @@ import { styles } from "./style";
 const Sobre = ({ navigation }) => {
   return (
     <View style={styles.tudo}>
-      <View>
+      <View style={styles.ecommerce}>
         <Image
-          style={{ width: "97%", height: 150, marginTop: 10 }}
+          style={{ width: "97%", height: 150, marginTop: 0 }}
           source={require("../../../assets/logo2.png")}
           resizeMode="contain"
         />
@@ -17,9 +17,9 @@ const Sobre = ({ navigation }) => {
         <Text style={styles.integrantes}>INTEGRANTES GRUPO 5</Text>
       </View>
 
-      <View>
+      <View style={styles.card}>
         <Image
-          style={{ width: "10%", height: 40, borderRadius: 50 }}
+          style={styles.imagem}
           source={require("../../../assets/arthur.jpg")}
           resizeMode="contain"
         />
@@ -38,9 +38,10 @@ const Sobre = ({ navigation }) => {
         >
           <Text style={styles.GitHub}>GitHub</Text>
         </TouchableOpacity>
-      </View>
+      </View >
+      <View style={styles.card}>
       <Image
-        style={{ width: "10%", height: 40, borderRadius: 50 }}
+        style={styles.imagem}
         source={require("../../../assets/lucas.jpg")}
         resizeMode="contain"
       />
@@ -50,6 +51,7 @@ const Sobre = ({ navigation }) => {
           Linking.openURL(
             "https://www.linkedin.com/in/lucas-oliveira-a84021286/"
           )
+          
         }
       >
         <Text style={styles.linkedin}>Linkedin</Text>
@@ -59,10 +61,11 @@ const Sobre = ({ navigation }) => {
       >
         <Text style={styles.GitHub}>GitHub</Text>
       </TouchableOpacity>
+      </View>
       <View>
         <View>
           <Image
-            style={{ width: "10%", height: 40, borderRadius: 50 }}
+            style={styles.imagem}
             source={require("../../../assets/matheus.jpg")}
             resizeMode="contain"
           />
@@ -88,7 +91,7 @@ const Sobre = ({ navigation }) => {
         </View>
         <View>
           <Image
-            style={{ width: "10%", height: 40, borderRadius: 50 }}
+            style={styles.imagem}
             source={require("../../../assets/ramom.jpg")}
             resizeMode="contain"
           />
@@ -110,7 +113,7 @@ const Sobre = ({ navigation }) => {
         </View>
         <View>
           <Image
-            style={{ width: "10%", height: 40, borderRadius: 50 }}
+            style={styles.imagem}
             source={require("../../../assets/thiago.jpg")}
             resizeMode="contain"
           />

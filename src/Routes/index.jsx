@@ -23,6 +23,13 @@ export const Routes = () => {
           }}
         />
         <Screen
+          name="Sobre"
+          component={Sobre}
+          options={{
+            // headerShown: false
+          }}
+        />
+        <Screen
           name="Login"
           component={Login}
           options={{
