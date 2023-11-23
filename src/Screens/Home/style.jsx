@@ -19,12 +19,16 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#101010'
   },
-  addProduto: {
+  search: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
     marginHorizontal: 10
+  },
+  icone: {
+    position: 'absolute',
+    marginLeft: 300
   },
   input: {
     backgroundColor: '#e8f6f8',
