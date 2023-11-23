@@ -11,23 +11,46 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: 1,
+        
     },
 
     integrantes:{
+    
         fontSize: 20,
         fontWeight: "bold",
         color: "#F2CD00",
-        backgroundColor: "black"
+        backgroundColor: "black",
+        marginTop:-20,
+        marginBottom:20
     },
 
     NomeIntegrante:{
-        color: "white", fontWeight: "bold"
+
+        textAlign: "center",
+        color: "white",
+         fontWeight: "bold",
+         
     },
     linkedin:{
-        color:"skyblue", fontWeight:'bold'
+
+        textAlign: "center",
+        color:"skyblue", 
+        fontWeight:'bold'
     },
     GitHub:{
-        color: "#515151", fontWeight: "bold"
+
+        textAlign: "center",
+        color: "#515151", 
+        fontWeight: "bold"
+    },
+    imagem:{
+        width: "10%",
+         height: 40, 
+         borderRadius: 50, 
+          left:"45%",
+          marginTop:10,
+          borderColor:'gold'
     }
 
 })

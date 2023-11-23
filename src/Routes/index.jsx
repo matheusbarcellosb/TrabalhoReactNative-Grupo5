@@ -14,6 +14,13 @@ export const Routes = () => {
     <NavigationContainer>
       <Navigator>
         <Screen
+          name="Sobre"
+          component={Sobre}
+          options={{
+            // headerShown: false
+          }}
+        />
+        <Screen
           name="Login"
           component={Login}
           options={{
@@ -27,13 +34,6 @@ export const Routes = () => {
             // headerShown: false
           }}
         />
-          <Screen
-            name="Sobre"
-            component={Sobre}
-            options={{
-              // headerShown: false
-            }}
-          />
         {/* <Screen
           name="Produto"
           component={Produto}
