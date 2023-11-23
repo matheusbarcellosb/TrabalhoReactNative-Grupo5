@@ -19,7 +19,7 @@ export const Routes = () => {
           name="SplashScreen"
           component={SplashScreen}
           options={{
-            headerShown: false
+             headerShown: false
           }}
         />
         <Screen
