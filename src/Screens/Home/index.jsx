@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import api from '../Services/api'
+import { useFocusEffect } from '@react-navigation/native';
 
 const Home = ({ navigation }) => {
 
@@ -27,9 +28,12 @@ const Home = ({ navigation }) => {
     return produtos.filter((produto) => produto.nome.toLowerCase().includes(pesquisa.toLowerCase()));
   }
 
-  useEffect(() => {
-    buscarDados();
-  }, []);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      buscarDados();
+    }, [])
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -41,14 +45,13 @@ const Home = ({ navigation }) => {
       <View style={styles.search}>
         <TextInput
           style={styles.input}
-          placeholder='Pesquisar Produto'
+          placeholder='Pesquisar'
           onChangeText={(texto) => setPesquisa(texto)}
         />
         <TouchableOpacity style={styles.icone}>
           <FontAwesome5 name="search" size={24} color="gray" />
         </TouchableOpacity>
       </View>
-
 
       <View style={styles.produtos}>
         {loading ? (

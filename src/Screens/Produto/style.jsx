@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        width: '100%',   
+        width: '100%',
     },
     containerTitulo: {
         padding: 30,
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     containerImagem: {
-        width: '100%',
+        width: '95%',
         height: 300,
         borderWidth: 3,
         borderRadius: 30,
@@ -67,6 +67,12 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-around',
         padding: 30,
     },
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     botao: {
         width: '20%',
         padding: 5,
@@ -75,6 +81,14 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
     },
     textoBotao: {
+        color: '#fff'
 
     },
+    sombra: {
+        shadowColor: '#efb804',
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        elevation: 10,
+    }
 })
