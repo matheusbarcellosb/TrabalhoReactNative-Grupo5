@@ -1,16 +1,17 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native'
 import Home from '../Screens/Home'
 import { Login } from '../Screens/Login'
 import {Produto} from '../Screens/Produto'
 import { SplashScreen } from '../Screens/SplashScreen'
 import Sobre from '../Screens/Sobre'
+import Tabs from './tab';
 
 
-const { Navigator, Screen } = createNativeStackNavigator()
+const { Navigator, Screen } = createDrawerNavigator()
 
-export const Routes = () => {
+export const Drawer = () => {
   return (
     <NavigationContainer>
       <Navigator>
@@ -18,26 +19,22 @@ export const Routes = () => {
           name="SplashScreen"
           component={SplashScreen}
           options={{
-            headerShown: false
+            headerShown: false,
+            drawerLabel: () => null
           }}
         />
-        <Screen
-          name="Sobre"
-          component={Sobre}
-          options={{
-            // headerShown: false
-          }}
-        />
+        
         <Screen
           name="Login"
           component={Login}
           options={{
-            headerShown: false
+            headerShown: false,
+            drawerLabel: () => null
           }}
         />
         <Screen
           name="Home"
-          component={Home}
+          component={Tabs}
           options={{
             // headerShown: false
           }}
