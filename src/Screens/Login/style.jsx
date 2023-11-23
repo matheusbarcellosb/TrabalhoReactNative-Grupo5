@@ -7,25 +7,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#101010'
     },
-    containerLogo: {
-        flex: 0.6,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        // backgroundColor: 'red'
-    },
-    containerLogin: {
-        flex: 0.4,
-        // backgroundColor: 'red'
-    },
-    textoLogin: {
-        fontSize: 32,
-        color: '#fff',
-    },
-    logo: {
-        width: '80%',
-        height: 80,
-    },
     container: {
         flex: 1,
         alignItems: 'center',
@@ -33,13 +14,30 @@ export const styles = StyleSheet.create({
         width: '100%',
         padding: 20,
     },
+    containerLogo: {
+        flex: 0.6,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+    },
+    containerEntrar: {
+        flex: 0.6,
+    },
+    logo: {
+        width: '80%',
+        height: 80,
+    },
+    containerLogin: {
+        flex: 0.4,
+    },
+    textoLogin: {
+        fontSize: 32,
+        color: '#fff',
+    },
     input: {
         width: '100%',
         marginBottom: 20,
         backgroundColor: "#e8f6f8",
-    },
-    containerEntrar: {
-        flex: 0.6,
     },
     btnEntrar: {
         alignItems: 'center',

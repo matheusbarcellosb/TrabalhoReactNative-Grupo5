@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#101010'
+  },
   header: {
     flex: 0.1,
     marginTop: 20,
@@ -12,14 +19,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#efb804'
   },
-  container: {
-    flex: 1,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#101010'
-  },
-  addProduto: {
+  search: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -27,41 +27,43 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10
   },
   input: {
-    backgroundColor: '#e8f6f8',
+    backgroundColor: '#fff',
     width: '90%',
     padding: 10,
     borderRadius: 15
   },
+  icone: {
+    position: 'absolute',
+    marginLeft: 300
+  },
   produtos: {
     flex: 1,
     width: '95%',
-    backgroundColor: '#e8f6f8',
+    backgroundColor: '#f6f7f9',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     marginTop: 20
   },
   produto: {
-    flexDirection: 'row',
+    width: '100%',
     alignItems: 'center',
-    marginTop: 30,
-    margin: 10
+    alignItems: 'center',
+    marginVertical: 30,
+  },
+  infoProduto: {
+    
+  },
+  dadosProduto: {
+    textAlign: 'center',
+    fontSize: 14
+  },
+  textoProduto: {
+    fontWeight: 'bold',
+    fontSize: 14
   },
   linha: {
     borderBottomWidth: 1,
     borderColor: '#efb804',
     marginHorizontal: 20
   },
-  textProduto: {
-    fontWeight: 'bold',
-    fontSize: 14
-  },
-  infoProduto: {
-    width: '72%',
-    marginLeft: 10
-  },
-  preco: {
-    alignSelf: 'flex-end',
-    fontWeight: 'bold',
-    fontSize: 15
-  }
 })
