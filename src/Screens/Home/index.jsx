@@ -1,12 +1,32 @@
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, ActivityIndicator, FlatList } from 'react-native'
 import { styles } from './style'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import api from '../Services/api'
 import { useFocusEffect } from '@react-navigation/native';
+import { MeuContexto } from '../../Context/Contexto';
+import { AuthContext } from '../../Context/AuthContext';
+import { Button } from 'react-native-paper';
 
 const Home = ({ navigation }) => {
+
+  const { nome } = useContext(MeuContexto);
+  const { logout } = useContext(AuthContext);
+
+  const obterInfos = async () => {
+    const email = await AsyncStorage.getItem("email");
+    const dados = JSON.parse(email);
+    console.log(dados.email);
+  };
+
+  useEffect(() => {
+    obterInfos();
+  }, []);
+
+
+    
+  
 
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,7 +68,16 @@ const Home = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+<SafeAreaView style={styles.container}>
+
+
+    <View>
+      <Button onPress={logout} mode="elevated">
+        Deslogar
+      </Button>
+    </View>
+
+
 
       <View style={styles.header}>
         <Text style={styles.headerText}>Produtos</Text>
