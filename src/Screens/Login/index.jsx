@@ -1,27 +1,26 @@
-import { View, Text, Alert, TouchableOpacity, Image, BackHandler } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useState, useContext, useEffect } from "react";
+import { View, Text, Image, TouchableOpacity, Alert, BackHandler } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useNavigation } from '@react-navigation/native'
+import { TextInput, Button } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthContext } from '../../Context/AuthContext'
 import { styles } from './style'
-import { TextInput } from 'react-native-paper'
-import Desconectado from '../Desconectado'
-import NetInfo from '@react-native-community/netinfo'
+import Desconectado from "../Desconectado";
+import NetInfo from "@react-native-community/netinfo";
 
-export const Login = () => {
-
-  useEffect(()=> {
-    BackHandler.addEventListener('hardwareBackPress', () => {
-        return true
-    })
-    },[])
-
-  const navigation = useNavigation()
-
-  const [senha, setSenha] = useState('')
-  const [email, setEmail] = useState('')
-
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const [conectado, setConectado] = useState(true)
-  
+
+  const { signin } = useContext(AuthContext);
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      return true
+    })
+  }, [])
+
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
       setConectado(state.isConnected)
@@ -29,22 +28,11 @@ export const Login = () => {
     return () => unsubscribe();
   }, [])
 
-  const handleLogin = () => {
-    if (senha === '' || email === '') {
-      Alert.alert('Preencha os campos')
-    }
-    else if (senha !== "0" && email !== "0") {
-      Alert.alert('Senha ou email incorreto')
-    }
-    else
-      navigation.navigate('Home')
-  }
-
   return (
 
-      <SafeAreaView style={styles.fullScreen}>
+    <SafeAreaView style={styles.fullScreen}>
 
-      {conectado ? (  
+      {conectado ? (
 
         <View style={styles.container}>
 
@@ -82,17 +70,19 @@ export const Login = () => {
                 borderColor: (email !== '' && senha !== '') ? '#11111f' : '#000',
               },
               styles.sombra
-            ]} onPress={handleLogin}>
+            ]} onPress={() => signin(email, senha)}>
               <Text style={styles.textoEntrar}>Entrar</Text>
             </TouchableOpacity>
           </View>
         </View>
       ) : (
-        <Desconectado/>
+        <Desconectado />
       )
-}
+      }
 
-      </SafeAreaView>
+    </SafeAreaView>
   )
 }
+
+export default Login;
 
