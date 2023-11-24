@@ -6,35 +6,54 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
 import ListaProdutos from '../../Components/ListaProdutos';
-import { MeuContexto } from '../../Context/Contexto';
 import { AuthContext } from '../../Context/AuthContext';
 import { styles } from './style'
 import api from '../Services/api'
+import NetInfo from '@react-native-community/netinfo'
 
 const Home = () => {
 
-  const { nome } = useContext(MeuContexto);
   const { logout } = useContext(AuthContext);
+
+  const [conectado, setConectado] = useState(true);
 
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pesquisa, setPesquisa] = useState('');
 
-  const obterInfos = async () => {
-    const email = await AsyncStorage.getItem("email");
-    const dados = JSON.parse(email);
-    console.log(dados.email);
-  };
+  const [produtosMapeados, setProdutosMapeados] = useState([])
 
   useEffect(() => {
-    obterInfos();
-  }, []);
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setConectado(state.isConnected)
+    })
+    return () => unsubscribe();
+  }, [])
+
+  useEffect(() => {
+    buscarProdutosStorage();
+  })
+
+  const buscarProdutosStorage = async () => {
+    try {
+      const produtosSalvos = await AsyncStorage.getItem('produtos')
+      if (produtosSalvos) {
+        setProdutos(JSON.parse(produtosSalvos))
+      }
+    } catch (erro) {
+      console.log('Erro ao carregar produtos ', erro);
+    }
+  }
 
   const buscarDados = async () => {
     try {
       const response = await api.get('/listadeprodutos');
+
+      await AsyncStorage.setItem('produtos', JSON.stringify(response.data));
+      const getProdutos = await AsyncStorage.getItem('produtos')
+      const getProdutosJson = JSON.parse(getProdutos)
+      setProdutosMapeados(getProdutosJson)
 
       setProdutos(response.data);
       setLoading(false);
@@ -50,7 +69,7 @@ const Home = () => {
   };
 
   const filtrarProdutos = () => {
-    return produtos.filter((produto) => produto.nome.toLowerCase().includes(pesquisa.toLowerCase()));
+    return conectado ? produtos.filter((produto) => produto.nome.toLowerCase().includes(pesquisa.toLowerCase())) : produtosMapeados.filter((produto) => produto.nome.toLowerCase().includes(pesquisa.toLowerCase()))
   }
 
   useFocusEffect(

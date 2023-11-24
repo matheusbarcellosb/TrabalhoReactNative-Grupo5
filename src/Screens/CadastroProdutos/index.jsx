@@ -7,7 +7,7 @@ import { useFormik } from 'formik';
 import api from '../Services/api'
 import { ActivityIndicator } from 'react-native-paper';
 
-export default function Cadastro() {
+export default function Cadastro({ navigation }) {
 
     const validacao = yup.object().shape({
         nome: yup
@@ -67,6 +67,7 @@ export default function Cadastro() {
             setTimeout(() => {
                 setLoading(false);
                 Alert.alert('Aviso', "Produto Cadastrado com Sucesso");
+                navigation.navigate('Home');
             }, 2000);
         } catch (error) {
             Alert.alert('Error', 'Erro ao deletar dados :', error)

@@ -9,12 +9,10 @@ export const AuthProvider = ({ children }) => {
 
   const signin = (email, senha) => {
 
-      console.log(email, senha);
       if (email === "grupo5@gmail" && senha === "5555") {
         Alert.alert("Usuário Logado com Sucesso!!!");
-        setUser({ user: "Grupo5", role: "admin"});
+        setUser({ user: "Grupo5", role: "admin", email: email, senha: senha});
       }else {
-      console.log(email, senha);
       Alert.alert("Senha ou email incorreto");
     }
 

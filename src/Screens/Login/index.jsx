@@ -8,29 +8,12 @@ import { styles } from './style'
 import Desconectado from "../Desconectado";
 import NetInfo from "@react-native-community/netinfo";
 
-
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [conectado, setConectado] = useState(true)
 
   const { signin } = useContext(AuthContext);
-
-  const guardarInfos = async () => {
-    if (email === "") return;
-
-    const user = {
-      email: email,
-      role: "admin",
-    };
-
-    try {
-      await AsyncStorage.setItem("email", JSON.stringify(user));
-      navigation.navigate("Home");
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', () => {
