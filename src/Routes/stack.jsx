@@ -7,13 +7,15 @@ import Sobre from '../Screens/Sobre'
 import { Login } from '../Screens/Login'
 import { SplashScreen } from '../Screens/SplashScreen'
 import { Produto } from '../Screens/Produto'
+import Tabs from './tab'
 
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
 export const Routes = () => {
   return (
-    <NavigationContainer>
+   <NavigationContainer>
+
       <Navigator>
         <Screen
           name="SplashScreen"
@@ -31,18 +33,12 @@ export const Routes = () => {
         />
         <Screen
           name="Home"
-          component={Home}
+          component={Tabs}
           options={{
-            headerStyle: {
-              backgroundColor: '#101010',
-            },
-            headerTitleStyle: {
-              color: '#efb804',
-            },
-            headerTintColor: '#efb804',
+           headerShown: false 
           }}
         />
-        <Screen
+        {/* <Screen
           name="Sobre"
           component={Sobre}
           options={{
@@ -54,7 +50,7 @@ export const Routes = () => {
             },
             headerTintColor: '#efb804',
           }}
-        />
+        /> */}
         <Screen
           name="Produto"
           component={Produto}
@@ -68,7 +64,7 @@ export const Routes = () => {
             headerTintColor: '#efb804',
           }}
         />
-      </Navigator>
-    </NavigationContainer>
+      </Navigator>   
+   </NavigationContainer>
   )
 }

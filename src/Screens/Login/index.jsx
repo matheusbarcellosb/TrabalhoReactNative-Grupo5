@@ -1,4 +1,4 @@
-import { View, Text, Alert, TouchableOpacity, Image } from 'react-native'
+import { View, Text, Alert, TouchableOpacity, Image, BackHandler } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
@@ -8,6 +8,12 @@ import Desconectado from '../Desconectado'
 import NetInfo from '@react-native-community/netinfo'
 
 export const Login = () => {
+
+  useEffect(()=> {
+    BackHandler.addEventListener('hardwareBackPress', () => {
+        return true
+    })
+    },[])
 
   const navigation = useNavigation()
 

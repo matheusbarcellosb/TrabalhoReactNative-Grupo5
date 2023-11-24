@@ -18,6 +18,9 @@ const Home = ({ navigation }) => {
 
       setProdutos(response.data);
       setLoading(false);
+      setTimeout(() =>{
+        setLoading
+      },3000)
     } catch (error) {
       console.error('Erro ao buscar dados da API:', error);
       setLoading(false);
@@ -34,6 +37,15 @@ const Home = ({ navigation }) => {
       buscarDados();
     }, [])
   );
+
+  if(loading) {
+    return(
+      <SafeAreaView style={styles.loadingContainer}>
+        <ActivityIndicator size='large' color="#e7cb1f"/>
+        <Text style={{color:'white'}}>Carregando...</Text>
+      </SafeAreaView>
+    )
+  }
 
   return (
     <SafeAreaView style={styles.container}>
