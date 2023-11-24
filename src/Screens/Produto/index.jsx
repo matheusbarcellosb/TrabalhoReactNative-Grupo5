@@ -2,11 +2,13 @@ import { View, Text, SafeAreaView, Image, TouchableOpacity, Alert } from 'react-
 import React, { useState } from 'react'
 import { styles } from './style'
 import api from '../Services/api'
-import { useNavigation } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { ActivityIndicator } from 'react-native-paper'
 
 export const Produto = ({ route }) => {
+
   const { item } = route?.params
+
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation()
 
@@ -15,13 +17,13 @@ export const Produto = ({ route }) => {
       setLoading(true);
 
       await api.delete("/listadeprodutos/" + id)
-
       setTimeout(() => {
         setLoading(false);
         Alert.alert("Produto deletado com Sucesso");
         navigation.goBack();
       }, 2000);
     } catch (e) {
+      Alert.alert('Error', 'Erro ao deletar dados :', error)
       setLoading(false);
       console.log(e);
     }
@@ -55,10 +57,10 @@ export const Produto = ({ route }) => {
           <View style={styles.containerDescricao}>
             <Text style={styles.descricao}>{item.descricao}</Text>
           </View>
-          
+
           {/* PUT & DELETE */}
           <View style={styles.botoes}>
-            <TouchableOpacity style={{ ...styles.botao, backgroundColor: '#4747ff' }}>
+            <TouchableOpacity onPress={() => navigation.navigate('Editar', { item })} style={{ ...styles.botao, backgroundColor: '#4747ff' }}>
               <Text style={styles.textoBotao}>Editar</Text>
             </TouchableOpacity>
 

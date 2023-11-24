@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, SafeAreaView, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Alert, BackHandler } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { TextInput, Button } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {AuthContext} from '../../Context/AuthContext'
@@ -8,7 +9,7 @@ import Desconectado from "../Desconectado";
 import NetInfo from "@react-native-community/netinfo";
 
 
-  const Login = ({ navigation }) => {
+const Login = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [conectado, setConectado] = useState(true)
@@ -31,12 +32,30 @@ import NetInfo from "@react-native-community/netinfo";
       }
     };
 
+    useEffect(()=> {
+      BackHandler.addEventListener('hardwareBackPress', () => {
+          return true
+      })
+      },[])
+    
     useEffect(() => {
       const unsubscribe = NetInfo.addEventListener(state => {
         setConectado(state.isConnected)
       })
       return () => unsubscribe();
     }, [])
+
+  
+  const handleLogin = () => {
+    if (senha === '' || email === '') {
+      Alert.alert('Preencha os campos')
+    }
+    else if (senha !== "0" && email !== "0") {
+      Alert.alert('Senha ou email incorreto')
+    }
+    else
+      navigation.navigate('Home')
+  }
 
   return (
 

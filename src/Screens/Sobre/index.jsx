@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image, Linking } from "react-native";
 import React from "react";
 import { styles } from "./style";
 
-const Sobre = ({ navigation }) => {
+const Sobre = () => {
   return (
     <View style={styles.tudo}>
       <View style={styles.ecommerce}>
