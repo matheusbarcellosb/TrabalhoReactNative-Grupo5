@@ -3,65 +3,53 @@ import { View, Text, Image, TouchableOpacity, Alert, BackHandler } from "react-n
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { TextInput, Button } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {AuthContext} from '../../Context/AuthContext'
-import {styles} from './style'
+import { AuthContext } from '../../Context/AuthContext'
+import { styles } from './style'
 import Desconectado from "../Desconectado";
 import NetInfo from "@react-native-community/netinfo";
 
 
 const Login = ({ navigation }) => {
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [conectado, setConectado] = useState(true)
-  
-    const { signin } = useContext(AuthContext);
-  
-    const guardarInfos = async () => {
-      if (email == "") return;
-  
-      const user = {
-        email: email,
-        role: "admin",
-      };
-  
-      try {
-        await AsyncStorage.setItem("email", JSON.stringify(user));
-        navigation.navigate("Home");
-      } catch (e) {
-        console.log(e);
-      }
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [conectado, setConectado] = useState(true)
+
+  const { signin } = useContext(AuthContext);
+
+  const guardarInfos = async () => {
+    if (email === "") return;
+
+    const user = {
+      email: email,
+      role: "admin",
     };
 
-    useEffect(()=> {
-      BackHandler.addEventListener('hardwareBackPress', () => {
-          return true
-      })
-      },[])
-    
-    useEffect(() => {
-      const unsubscribe = NetInfo.addEventListener(state => {
-        setConectado(state.isConnected)
-      })
-      return () => unsubscribe();
-    }, [])
+    try {
+      await AsyncStorage.setItem("email", JSON.stringify(user));
+      navigation.navigate("Home");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  
-  const handleLogin = () => {
-    if (senha === '' || email === '') {
-      Alert.alert('Preencha os campos')
-    }
-    else if (senha !== "0" && email !== "0") {
-      Alert.alert('Senha ou email incorreto')
-    }
-    else
-      navigation.navigate('Home')
-  }
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      return true
+    })
+  }, [])
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setConectado(state.isConnected)
+    })
+    return () => unsubscribe();
+  }, [])
 
   return (
 
-      <SafeAreaView style={styles.fullScreen}>
+    <SafeAreaView style={styles.fullScreen}>
 
-      {conectado ? (  
+      {conectado ? (
 
         <View style={styles.container}>
 
@@ -105,11 +93,11 @@ const Login = ({ navigation }) => {
           </View>
         </View>
       ) : (
-        <Desconectado/>
+        <Desconectado />
       )
-}
+      }
 
-      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

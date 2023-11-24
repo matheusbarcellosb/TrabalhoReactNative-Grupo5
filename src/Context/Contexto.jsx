@@ -4,7 +4,7 @@ export const MeuContexto = createContext();
 
 export const MeuContextoProvider = ({ children }) => {
   return (
-    <MeuContexto.Provider value={{ nome: "Carlos Paz" }}>
+    <MeuContexto.Provider value={'Grupo5'}>
       {children}
     </MeuContexto.Provider>
   );
