@@ -1,3 +1,4 @@
+import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -44,26 +45,11 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     marginTop: 20
   },
-  produto: {
-    width: '100%',
-    alignItems: 'center',
-    alignItems: 'center',
-    marginVertical: 30,
-  },
-  infoProduto: {
-    
-  },
-  dadosProduto: {
-    textAlign: 'center',
-    fontSize: 14
-  },
-  textoProduto: {
-    fontWeight: 'bold',
-    fontSize: 14
-  },
-  linha: {
-    borderBottomWidth: 1,
-    borderColor: '#efb804',
-    marginHorizontal: 20
-  },
+  loadingContainer: {
+    flex: 1,
+    backgroundColor: "#101010",
+    paddingTop: StatusBar.currentHeight,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 })

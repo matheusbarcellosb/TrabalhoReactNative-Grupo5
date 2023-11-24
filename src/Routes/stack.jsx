@@ -1,12 +1,11 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
-
-import Home from '../Screens/Home'
-import Sobre from '../Screens/Sobre'
 import { Login } from '../Screens/Login'
 import { SplashScreen } from '../Screens/SplashScreen'
 import { Produto } from '../Screens/Produto'
+import Tabs from './tab'
+import Editar from '../Screens/EditarProdutos'
 
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -14,6 +13,7 @@ const { Navigator, Screen } = createNativeStackNavigator()
 export const Routes = () => {
   return (
     <NavigationContainer>
+
       <Navigator>
         <Screen
           name="SplashScreen"
@@ -31,33 +31,27 @@ export const Routes = () => {
         />
         <Screen
           name="Home"
-          component={Home}
+          component={Tabs}
           options={{
-            headerStyle: {
-              backgroundColor: '#101010',
-            },
-            headerTitleStyle: {
-              color: '#efb804',
-            },
-            headerTintColor: '#efb804',
+            headerShown: false
           }}
-        />
-        <Screen
-          name="Sobre"
-          component={Sobre}
-          options={{
-            headerStyle: {
-              backgroundColor: '#101010',
-            },
-            headerTitleStyle: {
-              color: '#efb804',
-            },
-            headerTintColor: '#efb804',
-          }}
-        />
+        />       
         <Screen
           name="Produto"
           component={Produto}
+          options={{
+            headerStyle: {
+              backgroundColor: '#101010',
+            },
+            headerTitleStyle: {
+              color: '#efb804',
+            },
+            headerTintColor: '#efb804',
+          }}
+        />
+        <Screen
+          name="Editar"
+          component={Editar}
           options={{
             headerStyle: {
               backgroundColor: '#101010',

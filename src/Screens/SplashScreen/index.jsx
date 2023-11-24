@@ -11,6 +11,7 @@ export const SplashScreen = () => {
             <LottieView source={require("../../../assets/splashAnimada.json")}
                 autoPlay
                 loop={false}
+                resizeMode='cover'
                 onAnimationFinish={() => navigation.navigate('Login')}
             />
         </View>
