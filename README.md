@@ -20,11 +20,11 @@ Este projeto foi desenvolvido por um grupo de 5 pessoas.
 
 ### Requisitos Concluidos:
 
-Página de Login - Só é possível acessar o aplicativo com login e senha corretos. (CONCLUIDO)
+Página de Login - Só é possível acessar o aplicativo com login e senha corretos. - (CONCLUIDO)
 
-Página para exibir os produtos utilizando flatlist (CONCLUIDO)
+Página para exibir os produtos utilizando flatlist - (CONCLUIDO)
 
-Página com detalhes do produto selecionado (CONCLUIDO)
+Página com detalhes do produto selecionado - (CONCLUIDO)
 
 Loading em todas as interações assíncronas - (~CONCLUIDO)
 
@@ -32,17 +32,17 @@ mensagens de operações realizadas com sucesso - (CONCLUIDO)
 
 Página Contendo os Integrantes do Grupo - (CONCLUIDO)
 
-Monitoramento de conexão a internet - Caso o dispositivo não tenha acesso a internet, exibir a informação -  (CONCLUIDO)
+Monitoramento de conexão a internet - Caso o dispositivo não tenha acesso a internet, exibir a informação - (CONCLUIDO)
 
-Splash Screen com Animação de entrada no aplicativo -  (CONCLUIDO)
+Splash Screen com Animação de entrada no aplicativo - (CONCLUIDO)
 
-Pelos menos 2 tipos de Navegação  - (CONCLUIDO)
+Pelos menos 2 tipos de Navegação - (CONCLUIDO)
 
-Gerenciamento do produto - CRUD com Axios com validação dos inputs e feedback visual de erro -  (CONCLUIDO)
+Gerenciamento do produto - CRUD com Axios com validação dos inputs e feedback visual de erro - (CONCLUIDO)
 
 mensagens de confirmação - (CONCLUIDO) 
 
-Salvar os produtos no banco de dados e permitir que sejam visualizados quando o dispositivo estiver offline  - (~CONCLUIDO) 
+Salvar os produtos no banco de dados e permitir que sejam visualizados quando o dispositivo estiver offline - (~CONCLUIDO) 
 
 ### Faltou fazer: 
 
