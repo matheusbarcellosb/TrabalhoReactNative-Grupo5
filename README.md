@@ -18,7 +18,7 @@ Este projeto foi desenvolvido por um grupo de 5 pessoas.
 + <a href="https://github.com/RGOC12"> Ramon Gall
 + <a href="https://github.com/Thigoo"> Thiago da Silva
 
-Requisitos Concluidos:
+### Requisitos Concluidos:
 
 Página de Login - Só é possível acessar o aplicativo com login e senha corretos. (CONCLUIDO)
 
