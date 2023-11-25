@@ -29,6 +29,17 @@ export const Produto = ({ route }) => {
     }
   }
 
+  const confirmSubmit = (id) => {
+    Alert.alert(
+        'Confirmação',
+        'Deseja realmente deletar o produto?',
+        [
+            { text: 'Cancelar', style: 'cancel' },
+            { text: 'Confirmar', onPress:deletarProduto(id) },
+        ],
+        { cancelable: true }
+    );
+}
   return (
     <>
       <SafeAreaView style={styles.paginaProduto}>
@@ -64,7 +75,7 @@ export const Produto = ({ route }) => {
               <Text style={styles.textoBotao}>Editar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => { deletarProduto(item.id) }} style={{ ...styles.botao, backgroundColor: '#fc0137' }}>
+            <TouchableOpacity onPress={() => { confirmSubmit(item.id) }} style={{ ...styles.botao, backgroundColor: '#fc0137' }}>
               <Text style={styles.textoBotao}>Apagar</Text>
             </TouchableOpacity>
           </View>

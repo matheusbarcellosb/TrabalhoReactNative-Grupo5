@@ -78,7 +78,17 @@ export default function Editar({ route }) {
             getDados();
         }, [])
     );
-
+    const confirmSubmit = () => {
+        Alert.alert(
+            'Confirmação',
+            'Deseja realmente atualizar o produto?',
+            [
+                { text: 'Cancelar', style: 'cancel' },
+                { text: 'Confirmar', onPress: handleSubmit },
+            ],
+            { cancelable: true }
+        );
+    }
 
     const [loading, setLoading] = useState(false);
 
@@ -172,7 +182,7 @@ export default function Editar({ route }) {
                     />
                 </View>
                 <View style={styles.put}>
-                    <TouchableOpacity onPress={handleSubmit} style={[styles.botaoPut, !isValid && styles.botaoPutDesabilitado]}>
+                    <TouchableOpacity onPress={confirmSubmit} style={[styles.botaoPut, !isValid && styles.botaoPutDesabilitado]}>
                         <Text style={styles.textoPut}>Atualizar Produto</Text>
                     </TouchableOpacity>
                 </View>

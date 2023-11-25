@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 
     tudo:{
-        backgroundColor: "black",
+        backgroundColor: "#101010",
         flex: 1
     },
 
