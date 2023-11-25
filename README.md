@@ -44,6 +44,6 @@ mensagens de confirmação - (CONCLUIDO)
 
 Salvar os produtos no banco de dados e permitir que sejam visualizados quando o dispositivo estiver offline  - (~CONCLUIDO) 
 
-Faltou fazer: 
+### Faltou fazer: 
 
 Frontend do Ecommerce (Bonus) 
