@@ -53,7 +53,17 @@ export default function Cadastro({ navigation }) {
             postDados(values);
         },
     });
-
+    const confirmSubmit = () => {
+        Alert.alert(
+            'Confirmação',
+            'Deseja realmente cadastrar o produto?',
+            [
+                { text: 'Cancelar', style: 'cancel' },
+                { text: 'Confirmar', onPress: handleSubmit },
+            ],
+            { cancelable: true }
+        );
+    }
 
     const [loading, setLoading] = useState(false);
 
@@ -146,7 +156,7 @@ export default function Cadastro({ navigation }) {
                     />
                 </View>
                 <View style={styles.post}>
-                    <TouchableOpacity onPress={handleSubmit} style={[styles.botaoPost, !isValid && styles.botaoPostDesabilitado]}>
+                    <TouchableOpacity onPress={confirmSubmit} style={[styles.botaoPost, !isValid && styles.botaoPostDesabilitado]}>
                         <Text style={styles.textoPost}>Cadastrar Novo Produto</Text>
                     </TouchableOpacity>
                 </View>
